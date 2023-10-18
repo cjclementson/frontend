@@ -13,6 +13,7 @@
     --sidebar-color: #404040;
     --primary-color: #695CFE;
     --primary-color-light: #F6F5FF;
+    --main-content-color: #c4c4c4;
     --toggle-color: #DDD;
     --text-color: #707070;
 
@@ -22,88 +23,87 @@
     --tran-05: all 0.5 ease;
 }
 
-.task-bar {
-    position: fixed;
-    top: 0;
-    left: 0;
-    height: 60px;
-    width: 100%;
-    background: var(--task-bar-color);
-}
-
-.main-section {
+body {
+    display: flex;
+    flex-direction: column;
     height: 100vh;
-    background: var(--body-color);
 }
 
-.sidebar {
-    position: fixed;
-    top: 60px;
-    left: 0;
+header {
+    order: 0;
+    height: 60px;
+    background-color: var(--task-bar-color);
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    color: white;
+}
+
+.user-details {
+    display: flex;
+    align-items: center;
+}
+
+.nav-section {
+    order: 1;
+    display: flex;
+    flex-direction: row;
     height: 100%;
+}
+
+nav {
+    order: 0;
     width: 250px;
-    background: var(--sidebar-color);
+    background-color: var(--sidebar-color);
 }
 
-.sidebar li {
-}
-
-.task-bar .text {
-    font-size: 16px;
-    font-weight: 500;
-}
-
-.task-bar .image-text {
-    display: flex;
-    align-items: center;
-    height: 100%;
-}
-
-.task-bar .image-text img {
-    width: 40px;
-    height: 40px;
-    border-radius: 100%;
-}
-
-.task-bar .image-text .app-name {
-    margin-left: auto;
-    margin-right: auto;
-    color: #FFFFFF;
-}
-
-.task-bar .image-text .u-name {
-    color: #FFFFFF;
-    padding-right: 10px;
-}
-
-.task-bar .image-text .image-user {
-    display: flex;
-    align-items: center;
-    height: 100%;
-    padding-right: 10px;
-}
-
-.task-bar .image-text .image {
-    display: flex;
-    align-items: center;
-    height: 100%;
-    padding-left: 10px;
-}
-
-.sidebar .nav-links {
-    display: flex;
-    align-items: center;
+nav .nav-links {
     height: 60px;
 }
 
-.sidebar a {
+nav a {
     text-decoration: none;
     color: #FFFFFF;
     text-align: center;
     display: flex;
+    align-items: center;
+    width: 100%;
+    height: 100%;
 }
 
-.sidebar i {
+nav i {
     padding-right: 10px;
     padding-left: 15px;
+}
+
+nav .nav-links {
+    margin: 5px;
+}
+
+nav .nav-links:hover {
+    border: 2px solid white;
+    border-radius: 7px;
+}
+
+section {
+    margin: 7px;
+    border-radius: 5px;
+    order: 1;
+    flex-grow: 1;
+    background-color: var(--main-content-color);
+}
+
+.iframe {
+    height: 100%;
+    width: 100%;
+    border-radius: inherit;
+    border: none;
+}
+
+img {
+    width: 40px;
+    height: 40px;
+    border-radius: 50%;
+    margin-left: 10px;
+    margin-right: 10px;
 }
