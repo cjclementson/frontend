@@ -1,0 +1,93 @@
+@import url('https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700&display=swap');
+
+* {
+    font-family: 'Poppins', sans-serif;
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+:root {
+    --body-color: #4B4B4B;
+    --login-area-color: #FFFFFF;
+    --sidebar-color: #404040;
+    --primary-color: #695CFE;
+    --primary-color-light: #F6F5FF;
+    --main-content-color: #c4c4c4;
+    --toggle-color: #DDD;
+    --text-color: #707070;
+
+    --tran-02: all 0.2 ease;
+    --tran-03: all 0.3 ease;
+    --tran-04: all 0.4 ease;
+    --tran-05: all 0.5 ease;
+}
+
+body {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    height: 100vh;
+    background-color: var(--body-color);
+}
+
+.outer-login {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    height: 350px;
+    width: 400px;
+    border-radius: 5px;
+    background-color: var(--login-area-color);
+    padding: 0px 50px 0px 50px;
+}
+
+.inner-login {
+    width: 100%;
+}
+
+input {
+    width: 100%;
+    height: 2.5em;
+    margin-top: 5px;
+    margin-bottom: 5px;
+    border: 1px solid black;
+    border-radius: 5px;
+    text-indent: 5%;
+}
+
+button {
+    width: 100%;
+    height: 2.5em;
+    margin-top: 5px;
+    margin-bottom: 5px;
+    background-color: black;
+    border: none;
+    border-radius: 5px;
+    color: white;
+}
+
+p {
+    margin-top: 5px;
+    margin-bottom: 5px;
+    font-size: xx-small;
+}
+
+.sign-up {
+    text-decoration: none;
+    color: red;
+}
+
+.sign-in {
+    display: flex;
+    align-items: center;
+}
+
+.google-logo {
+    margin-left: 5px;
+}
+
+i {    
+    color: black;
+}
