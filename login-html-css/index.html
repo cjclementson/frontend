@@ -11,17 +11,21 @@
 </head>
 <body>
     <section>
-        <div class="outer-login">
-            <div class="inner-login">
-                Login
-                <input type="text" placeholder="Email">
-                <input type="password" placeholder="Password">
-                <button>Login</button>
-                <p>Don't have an account? <a class="sign-up" href="#">Sign up</a></p>
-                <hr>
-                <p class="sign-in">Or sign in with<a class="google-logo" href="#"><i class='bx bxl-google bx-sm'></i></a></p>
+        
+            <div class="outer-login">
+                <div class="inner-login">
+                    <form method="post" action="http://localhost:8000/login">
+                        Login
+                        <input type="text" name="username" placeholder="Email">
+                        <input type="password" name="password" placeholder="Password">
+                        <button type="submit">Login</button>
+                        <p>Don't have an account? <a class="sign-up" href="#">Sign up</a></p>
+                        <hr>
+                        <p class="sign-in">Or sign in with<a class="google-logo" href="#"><i class='bx bxl-google bx-sm'></i></a></p>
+                        
+                    </form>
+                </div>
             </div>
-        </div>
 
     </section> 
 </body>
