@@ -4,6 +4,7 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <link rel="stylesheet" href="style.css">
+    <script src="script.js"></script>
 	
 	<link href='https://unpkg.com/boxicons@2.1.4/css/boxicons.min.css' rel='stylesheet'>
 	
@@ -11,18 +12,15 @@
 </head>
 <body>
     <section>
-        
             <div class="outer-login">
                 <div class="inner-login">
-                    <form method="post" action="http://localhost:8000/login">
-                        Login
-                        <input type="text" name="username" placeholder="Email">
-                        <input type="password" name="password" placeholder="Password">
-                        <button type="submit">Login</button>
-                        <p>Don't have an account? <a class="sign-up" href="http://localhost:5500/login-html-css/signup.html">Sign up</a></p>
-                        <hr>
-                        <p class="sign-in">Or sign in with<a class="google-logo" href="#"><i class='bx bxl-google bx-sm'></i></a></p>                        
-                    </form>
+                    Login
+                    <input type="text" id="email" name="username" placeholder="Email">
+                    <input type="password" id="password" name="password" placeholder="Password">
+                    <button onclick="loginUser()">Login</button>
+                    <p>Don't have an account? <a class="sign-up" href="http://localhost:5500/login-html-css/signup.html">Sign up</a></p>
+                    <hr>
+                    <p class="sign-in">Or sign in with<a class="google-logo" href="#"><i class='bx bxl-google bx-sm'></i></a></p>
                 </div>
             </div>
     </section>
