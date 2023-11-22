@@ -3,17 +3,35 @@ async function register(registerBody) {
   console.log(registerBody);
   console.log(JSON.stringify(registerBody));
 
-  const response = await fetch("http://localhost:8000/api/v1/auth/register", {
+  fetch("http://localhost:8000/api/v1/auth/register", {
     method: 'POST',
     headers: { "Content-Type": "application/json" },
     body: JSON.stringify(registerBody),
     cache: 'no-cache'
+  }).then(resonse => {
+
+    if (resonse.ok) {
+      console.log("reponse ok 200");
+
+      return resonse.json();
+    }
+
+  }).then(json => {
+    
+    console.log(json);
+
+    if (json.hasOwnProperty("token")) {
+      console.log(json.token);
+      location.replace("/login-html-css/app-hub.html")
+    }
+    else if (json.hasOwnProperty("ErrorMessage")) {
+
+      console.log(json.ErrorMessage);
+    }
+  }).catch(error => {
+
+    console.log(error);
   });
-
-  const token = await response.json();
-
-  location.replace("/login-html-css/app-hub.html")
-  console.log(token);
 }
 
 async function login(loginBody) {     
@@ -26,12 +44,27 @@ async function login(loginBody) {
     headers: { "Content-Type": "application/json" },
     body: JSON.stringify(loginBody),
     cache: 'no-cache'
+  }).then(resonse => {
+
+    if (resonse.ok) {
+
+      return resonse.json();
+    }
+
+  }).then(json => {
+
+    if (json.hasOwnProperty("token")) {
+      
+      location.replace("/login-html-css/app-hub.html")
+    }
+    else if (json.hasOwnProperty("ErrorMessage")) {
+
+      console.log(json.ErrorMessage);
+    }
+  }).catch(error => {
+
+    console.log(error);
   });
-
-  const token = await response.json();
-
-  location.replace("/login-html-css/app-hub.html")
-  console.log(token);
 }
 
 function createAccount() {
@@ -45,8 +78,6 @@ function createAccount() {
       "password": pwd
   }
 
-  
-  
   register(registerBody);  
 }
 
