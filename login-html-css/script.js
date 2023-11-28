@@ -72,6 +72,12 @@ function createAccount() {
   let username = document.querySelector("#username").value;
   let pwd = document.querySelector("#password").value;
 
+  if (!validateEmail(email)) {
+
+    alert('invalid email');
+    return;
+  }
+
   let registerBody = {
       "email": email,
       "username": username,
@@ -82,6 +88,12 @@ function createAccount() {
 }
 
 function loginUser() {
+
+  if (!validateInput()) {
+
+    return;
+  }
+
   let email = document.querySelector("#email").value;
   let pwd = document.querySelector("#password").value;
 
@@ -91,4 +103,62 @@ function loginUser() {
   }
   
   login(loginBody);  
+}
+
+function validateEmail(email) {
+
+  return email.match(
+    /^(([^<>()[\]\\.,;:\s@\"]+(\.[^<>()[\]\\.,;:\s@\"]+)*)|(\".+\"))@((\[[0-9]{1,3}\.[0-9]{1,3}\.[0-9]{1,3}\.[0-9]{1,3}\])|(([a-zA-Z\-0-9]+\.)+[a-zA-Z]{2,}))$/
+  );
+}
+
+function validateInput() {
+
+  let invalidEmailElement = document.querySelector("#invalid-email");
+  let emailElement = document.querySelector("#email")
+  let email = emailElement.value;
+
+  let pwdElement = document.querySelector("#password")
+  let invalidPwdElement = document.querySelector("#invalid-password");
+  let pwd = pwdElement.value;
+
+  let valid = true;
+
+  if (email.length === 0) {
+
+    invalidEmailElement.style.display = 'block';
+    emailElement.style.borderColor = 'red';
+    valid = false;
+  }
+  else {
+
+    invalidEmailElement.style.display = 'none';
+    emailElement.style.borderColor = 'black';
+  }
+
+  if (pwd.length < 4 || pwd.length > 20) {
+    
+    invalidPwdElement.style.display = 'block';
+    pwdElement.style.borderColor = 'red';
+    valid = false;
+  }
+  else {
+
+    invalidPwdElement.style.display = 'none';
+    pwdElement.style.borderColor = 'black';
+  }
+
+  if (!validateEmail(email)) {
+
+    invalidEmailElement.style.display = 'block';
+    emailElement.style.borderColor = 'red';
+    valid = false;
+  }
+  else {
+
+    invalidEmailElement.style.display = 'none';
+    emailElement.style.borderColor = 'black';
+  }
+  
+  return valid;
 }

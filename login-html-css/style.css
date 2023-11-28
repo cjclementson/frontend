@@ -57,6 +57,12 @@ input {
     text-indent: 5%;
 }
 
+.invalid-input {
+    font-size: 0.6em;
+    color: red;
+    display: none;
+}
+
 button {
     width: 100%;
     height: 2.5em;
