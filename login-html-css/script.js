@@ -53,11 +53,16 @@ async function login(loginBody) {
 
   }).then(json => {
 
+    let failedLoginElement = document.querySelector("#failed-login");
     if (json.hasOwnProperty("token")) {
       
+      failedLoginElement.style.display = 'hidden';
       location.replace("/login-html-css/app-hub.html")
     }
     else if (json.hasOwnProperty("ErrorMessage")) {
+      
+      failedLoginElement.innerHTML = json.ErrorMessage;
+      failedLoginElement.style.display = 'block';
 
       console.log(json.ErrorMessage);
     }
@@ -72,9 +77,8 @@ function createAccount() {
   let username = document.querySelector("#username").value;
   let pwd = document.querySelector("#password").value;
 
-  if (!validateEmail(email)) {
+  if (!validateInput()) {
 
-    alert('invalid email');
     return;
   }
 
@@ -122,7 +126,27 @@ function validateInput() {
   let invalidPwdElement = document.querySelector("#invalid-password");
   let pwd = pwdElement.value;
 
+  let usernameElement = document.querySelector("#username")
+
   let valid = true;
+
+  if (usernameElement !== null) {
+
+    let invalidUsernameElement = document.querySelector("#invalid-username");
+    let username = usernameElement.value;
+
+    if (username.length === 0) {
+
+      invalidUsernameElement.style.display = 'block';
+      usernameElement.style.borderColor = 'red';
+      valid = false;
+    }
+    else {
+  
+      invalidUsernameElement.style.display = 'none';
+      usernameElement.style.borderColor = 'black';
+    }
+  }
 
   if (email.length === 0) {
 
