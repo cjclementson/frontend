@@ -109,6 +109,11 @@ function loginUser() {
   login(loginBody);  
 }
 
+function logout() {
+
+  location.replace("/login-html-css/index.html")  
+}
+
 function validateEmail(email) {
 
   return email.match(
